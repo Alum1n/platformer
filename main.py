@@ -25,7 +25,7 @@ lose_description = font.render("Press any button to restart", True, "Black")
 cat_large = pygame.image.load("Resources/cat-facing-player-large.png").convert_alpha()
 start_description = font.render("To start press any key", True, "Black")
 name = fontbig.render("Cat Runner", True, "dimgrey")
-version = font.render("Alpha v0.2.0", True, "Black")
+version = font.render("Alpha v0.3.0", True, "Black")
 pygame.mixer.music.play(-1)
 while True:
     for event in pygame.event.get():
