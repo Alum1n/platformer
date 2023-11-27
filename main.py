@@ -5,16 +5,17 @@ pygame.init()
 
 player_gravity = 0
 game_active = True
+player_score = 0
 
 screen = pygame.display.set_mode((1280,720))
 pygame.display.set_caption("Platformer")
 clock = pygame.time.Clock()
 
+
 cat = pygame.image.load("Resources/cat-facing-player.png").convert_alpha()
 ground = pygame.image.load("Resources/ground.png").convert_alpha()
 font = pygame.font.Font("Resources/font.ttf", 50)
 fontbig = pygame.font.Font("Resources/font.ttf", 200)
-score = font.render("Score: ", True, "Black")
 knife = pygame.image.load("Resources/knife.png").convert_alpha()
 cat_rect = cat.get_rect(midbottom = (500, 518))
 knife_rect = knife.get_rect(midbottom = (1280, 500))
@@ -35,9 +36,11 @@ while True:
         else:
             if event.type == pygame.KEYDOWN:
                 knife_rect.x = 1280
+                player_score = 0
                 game_active = True
             if event.type == pygame.MOUSEBUTTONDOWN:
                 knife_rect.x = 1280
+                player_score = 0
                 game_active = True
     if game_active:        
         knife_rect.x = knife_rect.x - 12
@@ -52,10 +55,16 @@ while True:
             cat_rect.bottom = 518
         screen.blit(cat, cat_rect)
         screen.blit(ground,(0,500))
+        player_score +=0.01666666666
+        score = font.render(f"Score: {round(player_score)}", True, "Black")
         screen.blit(score, (550,50))
         screen.blit(knife,knife_rect)
     else:
-        screen.blit(lose,(250,200))
-        screen.blit(lose_description,(280,420))
+        screen.fill((188,217,234))
+        screen.blit(lose,(250,150))
+        screen.blit(cat, (250,200))
+        screen.blit(lose_description,(280,430))
+        screen.blit(score, (520,500))
+
     pygame.display.update()
     clock.tick(60)
