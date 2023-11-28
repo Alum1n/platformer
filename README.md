@@ -12,4 +12,4 @@
 2. Download the source code from the latest [release](https://github.com/Alum1n/platformer/releases)
 3. Extract the zip file and right click in the folder that the main.py file is located in and click on *Open in Terminal*
 4. Then type `chmod +x /main.py`
-5. Execute the file with `./main.py`
+5. Execute it with `python /main.py`
